@@ -1,5 +1,5 @@
-    <script>
-
+<script type="text/javascript">
+    function myfun() 　　{ 　
 document.writeln("		<!-- 视频解析接口 -->");
 document.writeln("		<select name=\'jk\' id=\'jk\' onchange=\'onPlay()\'>");
 document.writeln("");
@@ -27,4 +27,5 @@ document.writeln("");
 document.writeln("		<!-- 左上角 选择下拉框+提示框 -->");
 document.writeln("		<input type=\'text\' onfocus=\'this.select();\' onmouseup=\'this.select();\' readonly=\'readonly\' value=\'会员盒子\'>");
 document.writeln("");
+       } 
     </script>
