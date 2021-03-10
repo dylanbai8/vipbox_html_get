@@ -22,7 +22,7 @@ document.writeln("		<option value=\'http://api.baiyug.vip/index.php?url=\' >切�
 
 document.writeln("</select>");
 document.writeln("<!-- 左上角 选择下拉框+提示框 -->");
-document.writeln("<input type=\'button\' onclick=\'window.open(\'http://vipbox.ml/\')\' value=\'免责声明\'>");
+document.writeln("<input type=\'button\' onclick=window.open(\'http://vipbox.ml\') value=\'免责声明\'>");
 document.writeln("</div>");
 document.writeln("</form>");
 document.writeln("</div>");
