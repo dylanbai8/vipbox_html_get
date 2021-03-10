@@ -1,0 +1,110 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- 会员盒子 开源代码 转自请注明来源 http://vipbox.ml/ -->
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+	<script type="text/javascript" src="https://dylanbai8.github.io/vipbox_html_get/jiekou.js"></script>
+
+	<title>会员盒子 http://vipbox.ml 爱奇艺 腾讯 优酷 VIP视频免费观看</title>
+
+	<!-- 右上角 提示框 css -->
+	<style>
+		*{margin:0; padding:1px;}
+		img{max-width:100%; height:auto;}
+		input,select{height:2em; width:7em; vertical-align:middle; text-align:center;}
+	</style>
+
+	<script language="javascript" type="text/javascript">
+
+		//获取目标视频链接
+		function getParams(paras) {
+			var url = decodeURI(location.href);
+			var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+			var returnValue;
+			for (i = 0; i < paraString.length; i++) {
+				var tempParas = paraString[i].split('=')[0];
+				var parasValue = paraString[i].substring(paraString[i].indexOf("=") + 1);
+				if (tempParas === paras) returnValue = parasValue;
+			}
+			if (typeof(returnValue) == "undefined") {
+				return "";
+			} else {
+				return returnValue;
+			}
+		}
+
+		//生成播放链接 解析接口+目标视频链接
+		function onPlay(){
+			var oJK = document.getElementById("jk");
+			var sJK=oJK.options[oJK.selectedIndex].value;
+			var sVipUrl = getParams('url');
+			if(!sVipUrl){window.location.href="http://vipbox.ml";}
+			var oWin = document.getElementById("play");
+			if (sVipUrl.length>0){
+				oWin.src=sJK + sVipUrl;
+			}
+		}
+
+	</script>
+
+</head>
+
+<body onload="onPlay()" bgcolor="#000000">
+
+	<script language="javascript" type="text/javascript">
+
+		//判断在微信内
+		function is_weixin() {
+			var ua = navigator.userAgent.toLowerCase();
+			if (ua.match(/MicroMessenger/i) == "micromessenger") {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		var isWeixin = is_weixin();
+		var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight: document.documentElement.clientHeight;
+		console.log(winHeight);
+
+		//微信内引导 html
+		function loadHtml() {
+			var div = document.createElement('div');
+			div.id = 'weixin-tip';
+			div.innerHTML = '<p><img src="/img/01.png"/></p>';
+			document.body.appendChild(div);
+		}
+
+		//微信内引导 css
+		function loadStyleText(cssText) {
+			var style = document.createElement('style');
+			style.rel = 'stylesheet';
+			style.type = 'text/css';
+			try {
+				style.appendChild(document.createTextNode(cssText));
+			} catch(e) {
+				style.styleSheet.cssText = cssText;
+			}
+			var head = document.getElementsByTagName("head")[0];
+			head.appendChild(style);
+		}
+
+		var cssText = "#weixin-tip{position: fixed; left:0; top:0; background: rgba(0,0,0,1); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;} #weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%;}";
+
+		//判断后 if 跳转
+		if (isWeixin) {
+			loadHtml();
+			loadStyleText(cssText);
+		} else {
+		//	prompt("【重要提示】：\n\n1.视频资源来自网络，请勿相信博彩棋牌等任何广告，谨防诈骗！\n\n2.视频解析缓存需要较长时间，请耐心等待。\n\n3.会员盒子更多使用方法请访问：http://vipbox.ml \n\n4.点击 确定 开始观看视频。\n","我已逐字阅读以上声明");
+		jiekou()
+		}
+
+	</script>
+
+	<!-- <script type="text/javascript" src="//js.users.51.la/20551655.js"></script> -->
+</body>
+</html>
