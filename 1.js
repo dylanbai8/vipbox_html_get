@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    function myfun() 　　{ 　
+    window.onload = function(){
 document.writeln("		<!-- 视频解析接口 -->");
 document.writeln("		<select name=\'jk\' id=\'jk\' onchange=\'onPlay()\'>");
 document.writeln("");
